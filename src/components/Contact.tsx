@@ -40,78 +40,62 @@ const channels = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-24 robotics-surface border-t border-line/60">
-      {/* Background Schematics */}
+    <section id="contact" className="relative py-20 robotics-surface border-t border-line/60">
+      {/* Background Motif */}
       <RoboticsMotif kind="connector" className="section-connector-motif" />
 
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-[50px_1fr] gap-6 sm:gap-8 items-start">
-          {/* Technical Rail */}
-          <div className="hidden md:flex flex-col items-start gap-2 text-cyan font-mono text-xs font-bold tracking-widest pt-2">
-            <span>04</span>
-            <div className="w-px h-56 bg-line" />
-            <span className="text-[10px] text-muted rotate-90 origin-left translate-y-12 uppercase">
-              SYS.DOWNLINK
-            </span>
+      <div className="max-w-5xl mx-auto px-5 sm:px-6 relative z-10">
+        <ScrollReveal>
+          <div className="mb-10">
+            <div className="orange-bar" />
+            <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-navy">
+              Get in Touch
+            </h2>
+            <p className="text-base sm:text-lg text-muted mt-2 max-w-xl leading-relaxed">
+              Open to engineering collaborations, robotics challenges, research projects, and internships.
+            </p>
           </div>
+        </ScrollReveal>
 
-          <div>
-            {/* Header */}
-            <ScrollReveal>
-              <div className="mb-10">
-                <div className="orange-bar" />
-                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-navy">
-                  Telemetry Downlink &amp; <span className="text-orange">Contact</span>
-                </h2>
-                <p className="text-base sm:text-lg text-muted mt-2 max-w-xl leading-relaxed">
-                  Open to engineering collaborations, robotics competitions, research initiatives, and internships.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            {/* Communication Ports Grid */}
-            <ScrollReveal delay={100}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mb-16">
-                {channels.map((ch) => (
-                  <Link
-                    key={ch.label}
-                    href={ch.href}
-                    target={ch.href.startsWith("mailto:") ? undefined : "_blank"}
-                    rel={ch.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                    className="delta-card p-4 sm:p-5 flex items-center justify-between group border border-line corner-tick"
-                  >
-                    <div className="flex items-center gap-3.5">
-                      <div className="w-9 h-9 rounded-[2px] border border-line bg-paper flex items-center justify-center text-cyan group-hover:text-orange group-hover:border-orange transition-colors">
-                        {ch.icon}
-                      </div>
-                      <div>
-                        <div className="font-mono text-[10px] text-muted tracking-wider uppercase font-semibold">
-                          {ch.label}
-                        </div>
-                        <div className="font-mono text-xs sm:text-sm text-navy font-bold">
-                          {ch.value}
-                        </div>
-                      </div>
+        {/* Contact links grid */}
+        <ScrollReveal delay={80}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-2xl mb-16">
+            {channels.map((ch) => (
+              <Link
+                key={ch.label}
+                href={ch.href}
+                target={ch.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={ch.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                className="clean-card p-4 sm:p-5 flex items-center justify-between group"
+              >
+                <div className="flex items-center gap-3.5">
+                  <div className="w-9 h-9 rounded-lg border border-line bg-paper flex items-center justify-center text-muted group-hover:text-orange group-hover:border-orange transition-colors">
+                    {ch.icon}
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted font-medium">
+                      {ch.label}
                     </div>
-                    <ArrowUpRight
-                      size={14}
-                      className="text-muted group-hover:text-cyan group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
-                    />
-                  </Link>
-                ))}
-              </div>
-            </ScrollReveal>
+                    <div className="text-sm text-navy font-semibold">
+                      {ch.value}
+                    </div>
+                  </div>
+                </div>
+                <ArrowUpRight
+                  size={15}
+                  className="text-muted group-hover:text-orange group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                />
+              </Link>
+            ))}
           </div>
-        </div>
+        </ScrollReveal>
 
-        {/* Technical Footer */}
-        <div className="mt-16 pt-8 border-t border-line/60 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-[11px] text-muted">
-          <div>
-            MOHAMED BENNAMANE &middot; NHSAST SIDI ABDELLAH &middot; <span className="text-cyan">36.7525° N, 3.0420° E</span>
-          </div>
-          <div className="text-orange font-bold tracking-wider">
-            BUILD &middot; TEST &middot; LEARN &middot; INNOVATE
-          </div>
+        {/* Clean, human footer */}
+        <div className="pt-8 border-t border-line/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted">
+          <span>Mohamed Bennamane &middot; NHSAST, Sidi Abdellah, Algiers</span>
+          <span className="font-mono text-[11px] text-muted">
+            Build &middot; Test &middot; Learn
+          </span>
         </div>
       </div>
     </section>

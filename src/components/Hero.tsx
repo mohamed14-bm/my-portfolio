@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Mail, Send } from "lucide-react";
+import { ArrowDown, ArrowRight, Mail, Send } from "lucide-react";
 import { RoboticsMotif } from "@/components/RoboticsMotifs";
 
 const socials = [
@@ -35,130 +35,76 @@ const socials = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center robotics-surface overflow-hidden pt-24 pb-16 blueprint-grid">
-      {/* Background Robotics & Circuit Motifs */}
+    <section className="relative min-h-[85vh] flex items-center robotics-surface overflow-hidden pt-28 pb-16">
+      {/* Background Robotics Line Motifs — Quiet and subtle */}
       <RoboticsMotif kind="microcontroller" className="home-controller-motif" />
       <RoboticsMotif kind="signal-grid" className="home-trace-motif" />
       <RoboticsMotif kind="robot-arm" className="home-arm-motif" />
 
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 w-full relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-[50px_1fr] gap-6 sm:gap-8 items-start">
-          {/* Technical Vertical Rail */}
-          <div className="hidden md:flex flex-col items-start gap-2 text-cyan font-mono text-xs font-bold tracking-widest pt-2">
-            <span>01</span>
-            <div className="w-px h-52 bg-line" />
-            <span className="text-[10px] text-muted rotate-90 origin-left translate-y-10 uppercase">
-              SYS.AUTON
+      <div className="max-w-5xl mx-auto px-5 sm:px-6 w-full relative z-10">
+        <div className="max-w-3xl">
+          {/* Status chips */}
+          <div className="flex flex-wrap items-center gap-2 mb-6">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-line bg-card-bg text-xs font-medium text-navy">
+              <span className="w-1.5 h-1.5 rounded-full bg-orange" />
+              NHSAST &middot; 2nd Year Prep
+            </span>
+            <span className="px-3 py-1 rounded-full border border-line bg-card-bg text-xs font-medium text-muted">
+              Autonomous Systems &amp; Robotics
+            </span>
+            <span className="px-3 py-1 rounded-full border border-line bg-card-bg text-xs font-medium text-muted">
+              Team Delta Robotics
             </span>
           </div>
 
-          {/* Main Hero Card with Corner Ticks */}
-          <div className="delta-card p-6 sm:p-10 corner-tick relative border border-line">
-            {/* Top Status Badges */}
-            <div className="flex flex-wrap items-center gap-2 mb-5">
-              <span className="px-2.5 py-1 bg-paper border border-line font-mono text-[11px] text-cyan tracking-wider font-semibold rounded-[2px]">
-                NHSAST PREP CYCLE
-              </span>
-              <span className="px-2.5 py-1 bg-paper border border-line font-mono text-[11px] text-orange tracking-wider font-semibold rounded-[2px]">
-                ROBOTICS &amp; CONTROL
-              </span>
-              <span className="px-2.5 py-1 bg-paper border border-line font-mono text-[11px] text-muted tracking-wider rounded-[2px]">
-                TEAM DELTA COMPETITOR
-              </span>
-              <span className="px-2.5 py-1 bg-paper border border-line font-mono text-[11px] text-muted tracking-wider rounded-[2px]">
-                C / C++ / EMBEDDED
-              </span>
-            </div>
+          {/* Clean Orange Indicator Bar */}
+          <div className="orange-bar" />
 
-            {/* Registration Marker */}
-            <div className="orange-bar" />
+          {/* Heading */}
+          <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-navy leading-[1.08] mb-3">
+            Mohamed Bennamane
+          </h1>
 
-            {/* Headline */}
-            <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-navy leading-[1.05] mb-2">
-              Mohamed Bennamane
-            </h1>
-            <div className="text-xl sm:text-2xl lg:text-3xl font-display font-semibold text-orange tracking-tight mb-6">
-              Autonomous Systems &amp; Robotics Engineer
-            </div>
+          <p className="font-display text-xl sm:text-2xl font-medium text-orange mb-6">
+            Building software platforms, embedded control systems, and robotics.
+          </p>
 
-            {/* Engineering Mission Prose */}
-            <p className="text-base sm:text-lg text-muted max-w-2xl leading-relaxed mb-6">
-              Second-year preparatory student at NHSAST (National Higher School of Autonomous Systems Technologies).
-              I build tools that solve real problems — from autonomous maze-solving robots and school bus tracking
-              telemetry to university calculus textbooks.
-            </p>
+          {/* Grounded Bio Prose */}
+          <p className="text-base sm:text-lg text-muted leading-relaxed mb-8 max-w-2xl">
+            I&apos;m an engineering student at NHSAST in Sidi Abdellah, Algiers.
+            Most of what I build comes from running into a problem and deciding to fix it — from
+            school information sites and bus tracking platforms to competitive robotics and published calculus textbooks.
+          </p>
 
-            {/* Key Telemetry Metrics Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-3 px-4 my-6 border border-line bg-paper/60 rounded-[2px] max-w-2xl">
-              <div>
-                <span className="font-mono text-[10px] text-muted uppercase tracking-wider block">
-                  DEPLOYED SYSTEMS
-                </span>
-                <span className="font-mono text-base sm:text-lg font-bold text-navy">
-                  07 BUILDS
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[10px] text-muted uppercase tracking-wider block">
-                  STUDENT IMPACT
-                </span>
-                <span className="font-mono text-base sm:text-lg font-bold text-cyan">
-                  1,500+ USERS
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[10px] text-muted uppercase tracking-wider block">
-                  COMPETITIONS
-                </span>
-                <span className="font-mono text-base sm:text-lg font-bold text-orange">
-                  AST FESTIVAL
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[10px] text-muted uppercase tracking-wider block">
-                  CORE FIRMWARE
-                </span>
-                <span className="font-mono text-base sm:text-lg font-bold text-navy">
-                  C / C++ / ESP32
-                </span>
-              </div>
-            </div>
+          {/* Actions */}
+          <div className="flex flex-wrap items-center gap-3 mb-10">
+            <Link href="#projects" className="btn-primary">
+              <span>View Projects</span>
+              <ArrowDown size={15} />
+            </Link>
+            <Link href="#contact" className="btn-secondary">
+              <span>Get in Touch</span>
+              <ArrowRight size={15} />
+            </Link>
+          </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2 mb-8">
+          {/* Social Links */}
+          <div className="flex items-center gap-2.5 pt-6 border-t border-line/70">
+            <span className="text-xs text-muted font-medium mr-2">
+              Connect:
+            </span>
+            {socials.map((s) => (
               <Link
-                href="#projects"
-                className="chamfer-btn inline-flex items-center gap-2 px-5 py-2.5 bg-cyan hover:bg-white text-paper font-mono text-xs font-bold tracking-wider uppercase transition-colors shadow-[0_0_12px_rgba(0,216,246,0.3)]"
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="flex items-center justify-center w-9 h-9 rounded-lg border border-line bg-card-bg text-muted hover:text-navy hover:border-muted transition-all"
               >
-                <span>Inspect Systems [→]</span>
-                <ArrowRight size={14} />
+                {s.icon}
               </Link>
-              <Link
-                href="#contact"
-                className="inline-flex items-center gap-2 px-4 py-2.5 border border-line hover:border-cyan text-muted hover:text-navy font-mono text-xs font-semibold tracking-wider uppercase transition-colors rounded-[2px] bg-card-bg"
-              >
-                <span>Telemetry Downlink [↗]</span>
-              </Link>
-            </div>
-
-            {/* Direct Connect Ports */}
-            <div className="flex items-center gap-2 pt-4 border-t border-line/60">
-              <span className="font-mono text-[11px] text-muted uppercase tracking-wider mr-2">
-                PORTS:
-              </span>
-              {socials.map((s) => (
-                <Link
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="flex items-center justify-center w-8 h-8 rounded-[2px] border border-line bg-paper text-muted hover:text-cyan hover:border-cyan transition-colors"
-                >
-                  {s.icon}
-                </Link>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
       </div>
