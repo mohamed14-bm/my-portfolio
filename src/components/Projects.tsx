@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { RoboticsMotif } from "@/components/RoboticsMotifs";
 
 interface Project {
   id: string;
   number: string;
+  category: string;
   title: string;
   hook: string;
   problem: string;
@@ -15,15 +18,15 @@ interface Project {
   impact: string;
   tech: string[];
   links: { label: string; href: string }[];
-  accent: "accent" | "warm" | "success" | "muted";
 }
 
 const projects: Project[] = [
   {
     id: "nhsast-info",
     number: "01",
+    category: "Web Platform & i18n",
     title: "NHSAST-Info",
-    hook: "1,500+ visitors during specialty-choosing period. Students said this site is why they chose the school.",
+    hook: "1,500+ visitors during specialty-choosing period. Students cited this site as the main reason they chose the school.",
     problem:
       "When I got my bac in 2025 and started looking into NHSAST, I ran into misleading information everywhere. There was no centralized, honest resource about the school, its programs, specializations, or what student life actually looks like.",
     what: [
@@ -42,13 +45,13 @@ const projects: Project[] = [
       { label: "Live Site", href: "https://nhsast-info.vercel.app" },
       { label: "GitHub", href: "https://github.com/mohamed14-bm" },
     ],
-    accent: "accent",
   },
   {
     id: "epsilite",
     number: "02",
+    category: "Academic Platform & LaTeX",
     title: "Epsilite",
-    hook: "Became the main exam-prep resource for NHSAST students. Sessions hit 35+ attendees.",
+    hook: "Became the main exam-prep resource for NHSAST students. Sessions reached 35+ attendees.",
     problem:
       "NHSAST runs a 2-year general prep cycle followed by 3 years of specialization. The first two years pack in a lot of modules, and students struggle. There was no organized peer-to-peer academic support.",
     what: [
@@ -66,11 +69,11 @@ const projects: Project[] = [
       { label: "Live Site", href: "https://epsilite.vercel.app" },
       { label: "GitHub", href: "https://github.com/mohamed14-bm" },
     ],
-    accent: "warm",
   },
   {
     id: "analysis-2-book",
     number: "03",
+    category: "Technical Authoring & LaTeX",
     title: "Analysis II — Textbook",
     hook: "200+ page calculus textbook co-authored with Dr. Zeglaoui. 23+ revision rounds. Pending publication.",
     problem:
@@ -84,15 +87,15 @@ const projects: Project[] = [
     role: "Co-author with Dr. Zeglaoui. Full LaTeX production, styling, and revision management.",
     impact:
       "Currently pending publication. Used by students during exam preparation.",
-    tech: ["LaTeX", "TikZ", "Custom Templates", "AI-Assisted Formatting"],
+    tech: ["LaTeX", "TikZ", "Custom Templates", "Mathematical Auditing"],
     links: [],
-    accent: "accent",
   },
   {
     id: "analysis-1-book",
     number: "04",
+    category: "Textbook & Solved Exercises",
     title: "Analysis I — Textbook",
-    hook: "Wrote a complete Analysis I textbook as the sole author. Used by first-year students for exam prep.",
+    hook: "Complete Analysis I textbook written as sole author. Used by first-year students for exam prep.",
     problem:
       "First-semester Analysis is one of the hardest modules for new prep students. There was no single, well-organized resource covering the full curriculum with exercises and solutions.",
     what: [
@@ -103,15 +106,15 @@ const projects: Project[] = [
     role: "Sole author. Wrote all content and produced the entire book in LaTeX.",
     impact:
       "Used by first-year NHSAST students as their main exam preparation resource.",
-    tech: ["LaTeX", "TikZ", "Custom Templates"],
+    tech: ["LaTeX", "TikZ", "Pedagogical Templates"],
     links: [],
-    accent: "warm",
   },
   {
     id: "polymaze",
     number: "05",
+    category: "Autonomous Robotics & CAD",
     title: "POLYMAZE Robot",
-    hook: "ESP32 burned out 2 hours before the deadline. Rebuilt on a breadboard and still qualified.",
+    hook: "ESP32 burned out 2 hours before deadline. Rebuilt on a breadboard and still qualified.",
     problem:
       "POLYMAZE is a maze-solver competition organized by the VIC club. I needed to design, build, and program a robot that autonomously navigates a maze.",
     what: [
@@ -125,13 +128,13 @@ const projects: Project[] = [
     role: "Solo. Designed the chassis, wired the circuit, wrote the code, and did the panicked breadboard rebuild.",
     impact:
       "Qualified with the breadboard robot. Made it to Phase 2. A QTR sensor broke mid-competition — finished 3rd in my group. Not the ending I wanted, but I learned never to use solder as a wire again.",
-    tech: ["ESP32", "L298N Motor Driver", "QTR Sensors", "C++", "Fusion 360", "3D Printing"],
+    tech: ["ESP32", "L298N Driver", "QTR Sensors", "C++", "Fusion 360", "3D Printing"],
     links: [],
-    accent: "success",
   },
   {
     id: "delta-team",
     number: "06",
+    category: "Competitive Robotics Team",
     title: "Team Delta — AST Festival",
     hook: "7 robot entries for the AST Festival. Dog robot, sumo, rocket league, all-terrain, and more.",
     problem:
@@ -142,16 +145,16 @@ const projects: Project[] = [
       "Built the Team Delta showcase website to document the team's work — CAD renders, build photos, real specs — for festival visitors and sponsors",
       "The site is designed to show competence through the work itself, with no sponsorship pitch — credibility shown, not asked for",
     ],
-    role: "Team member. Building robots and the team website.",
+    role: "Team member. Building robots and developing the team website.",
     impact:
       "Actively competing. Preparing for the AST Festival with 7 entries across different robotics categories.",
-    tech: ["ESP32", "SolidWorks", "PCB Design", "React", "Tailwind CSS"],
+    tech: ["ESP32", "SolidWorks", "PCB Design", "Embedded C", "Next.js", "Tailwind CSS"],
     links: [],
-    accent: "accent",
   },
   {
     id: "expand-trips",
     number: "07",
+    category: "Telemetry & Live Tracking",
     title: "Expand Trips Tracker",
     hook: "Real-time school bus tracking for parents. Teacher broadcasts location via Telegram, parents watch on a map.",
     problem:
@@ -168,54 +171,25 @@ const projects: Project[] = [
       "Designed for real deployment during school trips. Runs at zero cost with privacy-by-default — location data auto-deletes after 2 hours.",
     tech: ["Next.js", "Telegram Bot API", "Vercel KV", "Leaflet.js", "TypeScript"],
     links: [],
-    accent: "warm",
   },
 ];
 
-const accentColors = {
-  accent: {
-    text: "text-accent",
-    border: "border-accent/20",
-    bg: "bg-accent/5",
-    dot: "bg-accent",
-  },
-  warm: {
-    text: "text-warm",
-    border: "border-warm/20",
-    bg: "bg-warm/5",
-    dot: "bg-warm",
-  },
-  success: {
-    text: "text-success",
-    border: "border-success/20",
-    bg: "bg-success/5",
-    dot: "bg-success",
-  },
-  muted: {
-    text: "text-muted",
-    border: "border-muted/20",
-    bg: "bg-muted/5",
-    dot: "bg-muted",
-  },
-};
-
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [expanded, setExpanded] = useState(false);
-  const colors = accentColors[project.accent];
 
   return (
-    <ScrollReveal delay={index * 80}>
-      <article
-        className="group relative rounded-2xl border border-border bg-surface/50 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-border-hover card-glow"
-      >
+    <ScrollReveal delay={index * 60}>
+      <article className="delta-card overflow-hidden">
         {/* Header — always visible */}
-        <div className="p-6 sm:p-8">
-          <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="p-6 sm:p-7">
+          <div className="flex items-start justify-between gap-4 mb-3">
             <div className="flex items-center gap-3">
-              <span className={`text-xs font-mono ${colors.text} tracking-widest`}>
-                {project.number}
+              <span className="font-mono text-xs text-orange font-semibold tracking-wider">
+                SYS.{project.number}
               </span>
-              <span className={`w-1.5 h-1.5 rounded-full ${colors.dot}`} />
+              <span className="text-[11px] font-mono uppercase tracking-wider text-muted px-2.5 py-0.5 rounded border border-line bg-paper">
+                {project.category}
+              </span>
             </div>
             <div className="flex gap-2">
               {project.links.map((link) => (
@@ -224,28 +198,29 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-mono text-muted hover:text-foreground transition-colors border border-border rounded-lg px-3 py-1.5 hover:border-border-hover"
+                  className="inline-flex items-center gap-1 text-xs font-mono text-muted hover:text-navy hover:border-orange transition-colors border border-line rounded-md px-2.5 py-1"
                 >
-                  {link.label} ↗
+                  <span>{link.label}</span>
+                  <ArrowUpRight size={12} />
                 </Link>
               ))}
             </div>
           </div>
 
-          <h3 className="font-serif text-2xl sm:text-3xl text-foreground mb-3">
+          <h3 className="font-display text-2xl sm:text-3xl font-bold text-navy mb-2.5">
             {project.title}
           </h3>
 
-          <p className={`text-sm sm:text-base ${colors.text} font-medium leading-relaxed mb-4`}>
+          <p className="text-sm sm:text-base text-orange font-medium leading-relaxed mb-4">
             {project.hook}
           </p>
 
           {/* Tech tags */}
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-1.5 mb-4">
             {project.tech.map((t) => (
               <span
                 key={t}
-                className="px-2.5 py-1 text-xs font-mono rounded-md border border-border bg-background text-muted"
+                className="px-2.5 py-0.5 text-xs font-mono rounded border border-line bg-paper text-muted"
               >
                 {t}
               </span>
@@ -254,47 +229,43 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
           {/* Expand/Collapse */}
           <button
+            type="button"
             onClick={() => setExpanded(!expanded)}
-            className="text-sm font-mono text-muted hover:text-foreground transition-colors flex items-center gap-2 cursor-pointer"
+            className="text-xs font-mono uppercase tracking-wider text-muted hover:text-navy transition-colors flex items-center gap-1.5 cursor-pointer font-semibold pt-2"
           >
-            <span>{expanded ? "Less" : "Read more"}</span>
-            <svg
-              className={`w-4 h-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+            <span>{expanded ? "Collapse case study" : "Read technical case study"}</span>
+            <ChevronDown
+              size={14}
+              className={`transition-transform duration-300 ${expanded ? "rotate-180 text-orange" : ""}`}
+            />
           </button>
         </div>
 
         {/* Expanded detail */}
         <div
-          className={`grid transition-all duration-500 ease-in-out ${
+          className={`grid transition-all duration-400 ease-in-out ${
             expanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
           }`}
         >
           <div className="overflow-hidden">
-            <div className="px-6 sm:px-8 pb-8 pt-2 border-t border-border space-y-6">
+            <div className="px-6 sm:px-7 pb-7 pt-3 border-t border-line space-y-5 bg-paper/40">
               {/* Problem */}
               <div>
-                <h4 className="text-xs font-mono text-muted tracking-widest uppercase mb-2">
-                  Problem
+                <h4 className="text-[11px] font-mono text-orange tracking-widest uppercase font-semibold mb-1.5">
+                  Context &amp; Challenge
                 </h4>
-                <p className="text-foreground/80 leading-relaxed">{project.problem}</p>
+                <p className="text-sm sm:text-base text-muted leading-relaxed">{project.problem}</p>
               </div>
 
               {/* What I built */}
               <div>
-                <h4 className="text-xs font-mono text-muted tracking-widest uppercase mb-2">
-                  What I built
+                <h4 className="text-[11px] font-mono text-orange tracking-widest uppercase font-semibold mb-2">
+                  Technical Architecture &amp; Delivery
                 </h4>
-                <ul className="space-y-2">
+                <ul className="space-y-1.5">
                   {project.what.map((item, i) => (
-                    <li key={i} className="flex gap-3 text-foreground/80 leading-relaxed">
-                      <span className={`mt-2 w-1 h-1 rounded-full ${colors.dot} shrink-0`} />
+                    <li key={i} className="flex gap-2.5 text-sm sm:text-base text-muted leading-relaxed">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-orange shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -303,18 +274,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
               {/* Role */}
               <div>
-                <h4 className="text-xs font-mono text-muted tracking-widest uppercase mb-2">
-                  My role
+                <h4 className="text-[11px] font-mono text-orange tracking-widest uppercase font-semibold mb-1">
+                  Individual Contribution
                 </h4>
-                <p className="text-foreground/80 leading-relaxed">{project.role}</p>
+                <p className="text-sm sm:text-base text-muted leading-relaxed">{project.role}</p>
               </div>
 
               {/* Impact */}
               <div>
-                <h4 className="text-xs font-mono text-muted tracking-widest uppercase mb-2">
-                  Impact
+                <h4 className="text-[11px] font-mono text-orange tracking-widest uppercase font-semibold mb-1">
+                  Measurable Verification &amp; Outcome
                 </h4>
-                <p className={`${colors.text} font-medium leading-relaxed`}>{project.impact}</p>
+                <p className="text-sm sm:text-base text-navy font-semibold leading-relaxed">
+                  {project.impact}
+                </p>
               </div>
             </div>
           </div>
@@ -326,22 +299,42 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-28 sm:py-36">
-      <div className="max-w-4xl mx-auto px-6">
-        {/* Section label */}
-        <ScrollReveal>
-          <div className="flex items-center gap-4 mb-12">
-            <span className="text-xs font-mono text-accent tracking-widest uppercase">02</span>
-            <div className="h-px flex-1 bg-border" />
-            <span className="text-xs font-mono text-muted tracking-widest uppercase">Projects</span>
-          </div>
-        </ScrollReveal>
+    <section id="projects" className="relative py-28 robotics-surface border-t border-line/60">
+      {/* Delta Robotics Linework Motifs */}
+      <RoboticsMotif kind="signal-grid" className="section-signal-motif" />
 
-        {/* Project cards */}
-        <div className="space-y-6">
-          {projects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
-          ))}
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-[60px_1fr] gap-6 sm:gap-10 items-start">
+          {/* Delta-style Technical Rail */}
+          <div className="hidden md:flex flex-col items-start gap-3 text-orange font-mono text-xs font-semibold tracking-widest pt-2">
+            <span>03</span>
+            <div className="w-px h-72 bg-line" />
+            <span className="text-[10px] text-muted rotate-90 origin-left translate-y-16 uppercase">
+              SYS.PROJECTS
+            </span>
+          </div>
+
+          <div>
+            {/* Section Header */}
+            <ScrollReveal>
+              <div className="mb-10">
+                <div className="orange-bar" />
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-navy">
+                  Engineered Systems &amp; <span className="text-orange">Projects</span>
+                </h2>
+                <p className="text-base text-muted mt-3 max-w-2xl">
+                  Deeply documented engineering builds spanning autonomous robotics, web platforms, and technical publications.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* Project cards list */}
+            <div className="space-y-5">
+              {projects.map((project, i) => (
+                <ProjectCard key={project.id} project={project} index={i} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
