@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "@/components/ThemeContext";
@@ -12,13 +12,14 @@ const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
+const emptySubscribe = () => () => {};
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -29,73 +30,78 @@ export default function Navbar() {
   const isDark = theme === "dark";
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-150 ${
         scrolled
-          ? "bg-paper/85 dark:bg-[#080f1d]/85 backdrop-blur-md border-b border-line shadow-xs"
-          : "bg-transparent"
+          ? "bg-paper/95 border-b-2 border-border shadow-sketch-sm"
+          : "bg-transparent border-b-2 border-transparent"
       }`}
     >
-      <div className="max-w-5xl mx-auto px-5 sm:px-6 flex items-center justify-between h-16">
+      <div className="max-w-5xl mx-auto px-5 sm:px-6 flex items-center justify-between h-18">
         {/* Brand */}
         <Link
           href="#"
-          className="flex items-center gap-2.5"
+          className="flex items-center gap-3 group"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <span className="w-7 h-7 rounded-md bg-navy text-paper dark:bg-cyan dark:text-[#080f1d] flex items-center justify-center font-mono text-xs font-bold">
+          {/* Hand-stamped wobbly monogram badge */}
+          <span
+            className="w-10 h-10 border-2 border-border bg-paper-bright text-foreground group-hover:bg-accent group-hover:text-white flex items-center justify-center font-heading text-lg font-bold shadow-sketch-sm -rotate-2 group-hover:rotate-1 transition-all duration-100"
+            style={{ borderRadius: "255px 15px 225px 15px / 15px 225px 15px 255px" }}
+          >
             MB
           </span>
           <div className="flex flex-col">
-            <span className="font-display font-bold text-sm tracking-tight text-navy">
+            <span className="font-heading font-bold text-xl tracking-tight text-foreground leading-none">
               Mohamed Bennamane
             </span>
-            <span className="text-[11px] text-muted hidden sm:block">
-              NHSAST &middot; Autonomous Systems
+            <span className="font-body text-sm text-muted hidden sm:block leading-tight">
+              NHSAST &middot; Autonomous Systems &amp; Robotics
             </span>
           </div>
         </Link>
 
         {/* Nav Links + Theme Toggle */}
-        <div className="flex items-center gap-3 sm:gap-6">
-          <div className="hidden sm:flex items-center gap-1">
+        <div className="flex items-center gap-2 sm:gap-6">
+          <nav className="hidden sm:flex items-center gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="px-3 py-1 text-xs text-muted hover:text-navy hover:bg-paper-wash rounded-md transition-colors font-medium"
+                className="px-3 py-1 font-body text-lg font-bold text-muted hover:text-foreground wavy-hover transition-colors"
               >
                 {item.label}
               </Link>
             ))}
-          </div>
+          </nav>
 
-          {/* Clean Theme Toggle Button */}
+          {/* Hand-drawn Theme Toggle Button */}
           {mounted && (
             <button
               type="button"
               onClick={toggleTheme}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-line bg-card-bg text-muted hover:text-navy hover:border-muted transition-colors text-xs font-medium cursor-pointer"
-              aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+              className="inline-flex items-center gap-2 px-3 py-1.5 border-2 border-border bg-paper-bright text-foreground shadow-sketch-sm font-body text-base font-bold transition-all duration-100 cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-sketch-none"
+              style={{ borderRadius: "120px 15px 100px 12px / 12px 100px 12px 120px" }}
+              aria-label={`Switch to ${isDark ? "Warm Paper" : "Chalkboard"} mode`}
             >
               {isDark ? (
                 <>
-                  <Sun size={14} className="text-orange" />
-                  <span className="text-xs">Light</span>
+                  <Sun size={16} className="text-accent stroke-[2.5]" />
+                  <span className="hidden xs:inline">Paper</span>
                 </>
               ) : (
                 <>
-                  <Moon size={14} className="text-navy" />
-                  <span className="text-xs">Dark</span>
+                  <Moon size={16} className="text-secondary-accent stroke-[2.5]" />
+                  <span className="hidden xs:inline">Chalkboard</span>
                 </>
               )}
             </button>
           )}
         </div>
       </div>
-    </nav>
+    </header>
   );
 }

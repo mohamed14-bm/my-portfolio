@@ -173,19 +173,48 @@ const projects: Project[] = [
   },
 ];
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [expanded, setExpanded] = useState(false);
 
+  const isPostIt = project.id === "epsilite";
+  const hasTape = project.id === "analysis-2-book";
+  const tilts = ["rotate-0.5", "-rotate-0.5", "rotate-0", "-rotate-1", "rotate-1", "-rotate-0.5", "rotate-0.5"];
+  const tilt = tilts[index % tilts.length];
+
   return (
-    <article className="clean-card overflow-hidden">
-      <div className="p-6 sm:p-7">
+    <article
+      className={`relative wobbly-card transition-all duration-150 border-2 border-border ${
+        isPostIt
+          ? "bg-[#fff9c4] text-[#2d2d2d] dark:bg-[#2b3340] dark:text-[#f4f0ea]"
+          : "bg-paper-bright text-foreground"
+      } shadow-sketch hover:shadow-sketch-lg ${tilt}`}
+      style={{
+        borderRadius: "20px 255px 20px 255px / 255px 20px 255px 20px",
+      }}
+    >
+      {/* Authentic Tape or Tack Decorations */}
+      {hasTape && <div className="tape-strip" aria-hidden="true" />}
+      {isPostIt && <div className="thumbtack-pin" aria-hidden="true" />}
+
+      <div className="p-6 sm:p-8">
         {/* Header row */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-          <div className="flex items-center gap-2.5">
-            <span className="font-mono text-xs font-bold text-orange">
+          <div className="flex items-center gap-3">
+            {/* Hand-sketched circled number */}
+            <span
+              className="w-8 h-8 border-2 border-border bg-paper flex items-center justify-center font-heading font-bold text-base text-accent shadow-sketch-sm -rotate-2"
+              style={{
+                borderRadius: "120px 15px 100px 12px / 12px 100px 12px 120px",
+              }}
+            >
               {project.number}
             </span>
-            <span className="text-xs px-2.5 py-0.5 rounded-full border border-line bg-paper text-muted font-medium">
+            <span
+              className="px-3 py-0.5 border-2 border-border bg-paper text-foreground font-body text-base font-bold shadow-sketch-sm"
+              style={{
+                borderRadius: "120px 15px 100px 12px / 12px 100px 12px 120px",
+              }}
+            >
               {project.category}
             </span>
           </div>
@@ -197,29 +226,37 @@ function ProjectCard({ project }: { project: Project }) {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-muted hover:text-navy transition-colors border border-line rounded-md px-2.5 py-1 bg-paper font-medium"
+                className="inline-flex items-center gap-1.5 font-body text-base font-bold px-3 py-1 border-2 border-border bg-paper-bright text-foreground hover:bg-accent hover:text-white shadow-sketch-sm transition-all duration-100 active:translate-x-0.5 active:translate-y-0.5 active:shadow-sketch-none"
+                style={{
+                  borderRadius: "120px 15px 100px 12px / 12px 100px 12px 120px",
+                }}
               >
                 <span>{link.label}</span>
-                <ArrowUpRight size={12} />
+                <ArrowUpRight size={15} className="stroke-[2.5]" />
               </Link>
             ))}
           </div>
         </div>
 
-        <h3 className="font-display text-2xl sm:text-3xl font-bold text-navy mb-2">
+        {/* Project Title */}
+        <h3 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-2">
           {project.title}
         </h3>
 
-        <p className="text-sm sm:text-base text-orange font-medium leading-relaxed mb-4">
+        {/* Catchy Hook */}
+        <p className="font-body text-lg sm:text-xl font-bold text-secondary-accent leading-relaxed mb-4">
           {project.hook}
         </p>
 
         {/* Tech tags */}
-        <div className="flex flex-wrap gap-1.5 mb-4">
+        <div className="flex flex-wrap gap-2 mb-5">
           {project.tech.map((t) => (
             <span
               key={t}
-              className="px-2.5 py-0.5 text-xs font-mono rounded border border-line bg-paper text-muted"
+              className="px-2.5 py-0.5 font-mono text-xs font-bold border-2 border-border/80 bg-paper/80 text-foreground"
+              style={{
+                borderRadius: "120px 12px 100px 10px / 10px 100px 10px 120px",
+              }}
             >
               {t}
             </span>
@@ -230,39 +267,39 @@ function ProjectCard({ project }: { project: Project }) {
         <button
           type="button"
           onClick={() => setExpanded(!expanded)}
-          className="text-xs text-muted hover:text-navy transition-colors flex items-center gap-1.5 cursor-pointer font-semibold pt-1"
+          className="inline-flex items-center gap-2 font-body text-lg font-bold text-muted hover:text-accent wavy-hover transition-colors cursor-pointer select-none pt-1"
         >
-          <span>{expanded ? "Collapse details" : "Read case study"}</span>
+          <span>{expanded ? "Fold case notes" : "Read handwritten notes"}</span>
           <ChevronDown
-            size={14}
-            className={`transition-transform duration-200 ${expanded ? "rotate-180 text-orange" : ""}`}
+            size={18}
+            className={`transition-transform duration-200 stroke-[2.5] ${expanded ? "rotate-180 text-accent" : ""}`}
           />
         </button>
       </div>
 
-      {/* Expanded detail */}
+      {/* Expanded detail: notebook fold */}
       <div
-        className={`grid transition-all duration-300 ease-in-out ${
+        className={`grid transition-all duration-200 ease-in-out ${
           expanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
         }`}
       >
         <div className="overflow-hidden">
-          <div className="px-6 sm:px-7 pb-7 pt-4 border-t border-line space-y-5 bg-paper-wash/40">
+          <div className="px-6 sm:px-8 pb-8 pt-5 border-t-2 border-dashed border-border/60 space-y-6 bg-paper-wash/50">
             <div>
-              <h4 className="text-xs font-mono text-orange uppercase tracking-wider font-semibold mb-1.5">
+              <h4 className="font-heading text-lg text-accent font-bold mb-1">
                 The Problem
               </h4>
-              <p className="text-sm sm:text-base text-muted leading-relaxed">{project.problem}</p>
+              <p className="font-body text-xl text-muted leading-relaxed">{project.problem}</p>
             </div>
 
             <div>
-              <h4 className="text-xs font-mono text-orange uppercase tracking-wider font-semibold mb-2">
+              <h4 className="font-heading text-lg text-accent font-bold mb-2">
                 What I Built
               </h4>
-              <ul className="space-y-1.5">
+              <ul className="space-y-2">
                 {project.what.map((item, i) => (
-                  <li key={i} className="flex gap-2.5 text-sm sm:text-base text-muted leading-relaxed">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-orange shrink-0" />
+                  <li key={i} className="flex items-start gap-2.5 font-body text-xl text-muted leading-relaxed">
+                    <span className="mt-2 w-2 h-2 rounded-full bg-accent shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -270,17 +307,17 @@ function ProjectCard({ project }: { project: Project }) {
             </div>
 
             <div>
-              <h4 className="text-xs font-mono text-orange uppercase tracking-wider font-semibold mb-1">
+              <h4 className="font-heading text-lg text-accent font-bold mb-1">
                 My Role
               </h4>
-              <p className="text-sm sm:text-base text-muted leading-relaxed">{project.role}</p>
+              <p className="font-body text-xl text-muted leading-relaxed">{project.role}</p>
             </div>
 
-            <div>
-              <h4 className="text-xs font-mono text-orange uppercase tracking-wider font-semibold mb-1">
+            <div className="p-4 bg-paper border-2 border-border/80 shadow-sketch-sm rounded-lg">
+              <h4 className="font-heading text-lg text-secondary-accent font-bold mb-1">
                 Impact &amp; Outcome
               </h4>
-              <p className="text-sm sm:text-base text-navy font-semibold leading-relaxed">
+              <p className="font-body text-xl text-foreground font-bold leading-relaxed">
                 {project.impact}
               </p>
             </div>
@@ -293,29 +330,29 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-20 robotics-surface border-t border-line/60">
-      {/* Background Motif */}
+    <section id="projects" className="relative py-24 robotics-surface border-t-2 border-dashed border-border/70">
+      {/* Background Sketched Motif */}
       <RoboticsMotif kind="signal-grid" className="section-signal-motif" />
 
       <div className="max-w-5xl mx-auto px-5 sm:px-6 relative z-10">
         {/* Section Header */}
         <ScrollReveal>
-          <div className="mb-10">
+          <div className="mb-12">
             <div className="orange-bar" />
-            <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-navy">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
               Projects &amp; Builds
             </h2>
-            <p className="text-base text-muted mt-2 max-w-xl">
-              Real projects spanning autonomous robotics, web platforms, and academic publications.
+            <p className="font-body text-xl sm:text-2xl text-muted mt-2 max-w-xl">
+              Authentic projects spanning autonomous robotics, web platforms, and academic publications.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Project cards */}
-        <div className="space-y-4">
+        {/* Project cards stack */}
+        <div className="space-y-6">
           {projects.map((project, i) => (
-            <ScrollReveal key={project.id} delay={i * 50}>
-              <ProjectCard project={project} />
+            <ScrollReveal key={project.id} delay={i * 40}>
+              <ProjectCard project={project} index={i} />
             </ScrollReveal>
           ))}
         </div>

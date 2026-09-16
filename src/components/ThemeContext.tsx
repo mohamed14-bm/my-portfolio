@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useSyncExternalStore } from "react";
 
 type Theme = "light" | "dark";
 
@@ -11,22 +11,37 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+const listeners = new Set<() => void>();
+
+function emitChange() {
+  for (const listener of listeners) {
+    listener();
+  }
+}
+
+function getThemeSnapshot(): Theme {
+  if (typeof window === "undefined") return "light";
+  const stored = localStorage.getItem("portfolio-theme");
+  return stored === "dark" ? "dark" : "light";
+}
+
+function getServerThemeSnapshot(): Theme {
+  return "light";
+}
+
+function subscribeTheme(callback: () => void) {
+  listeners.add(callback);
+  window.addEventListener("storage", callback);
+  return () => {
+    listeners.delete(callback);
+    window.removeEventListener("storage", callback);
+  };
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
+  const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getServerThemeSnapshot);
 
   useEffect(() => {
-    const stored = localStorage.getItem("portfolio-theme") as Theme | null;
-    if (stored === "light" || stored === "dark") {
-      setTheme(stored);
-    } else if (typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: light)").matches) {
-      setTheme("light");
-    }
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
     const root = document.documentElement;
     if (theme === "dark") {
       root.classList.add("dark");
@@ -35,11 +50,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       root.classList.remove("dark");
       root.classList.add("light");
     }
-    localStorage.setItem("portfolio-theme", theme);
-  }, [theme, mounted]);
+  }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    const next: Theme = theme === "light" ? "dark" : "light";
+    localStorage.setItem("portfolio-theme", next);
+    emitChange();
   };
 
   return (
