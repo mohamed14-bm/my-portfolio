@@ -4,12 +4,16 @@ import { SketchCard, SketchBadge } from "@/components/HandDrawnUI";
 
 const skillGroups = [
   {
-    label: "Web Development",
-    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Supabase"],
+    label: "Robotics & Embedded",
+    skills: ["ESP32", "Arduino", "Motor Control", "Sensor Integration", "Circuit Design", "PID Control"],
   },
   {
-    label: "Robotics & Embedded",
-    skills: ["ESP32", "Arduino", "Motor Control", "QTR Sensors", "Circuit Design", "L298N"],
+    label: "AI & Automation",
+    skills: ["Agents Fine Tuning", "AI Assisted Development", "n8n Workflows"],
+  },
+  {
+    label: "Programming",
+    skills: ["C", "C++", "Python", "Embedded Logic"],
   },
   {
     label: "CAD & Fabrication",
@@ -20,12 +24,15 @@ const skillGroups = [
     skills: ["LaTeX", "TikZ", "Markdown", "Pedagogical Templates", "Textbook Authoring"],
   },
   {
-    label: "Programming",
-    skills: ["C", "C++", "Python", "Embedded Logic"],
-  },
-  {
-    label: "AI & Automation",
-    skills: ["Agents Fine-Tuning", "AI-Assisted Development", "n8n Workflows"],
+    label: "Leadership & Social Skills",
+    skills: [
+      "Leadership",
+      "Project Management",
+      "Public Speaking",
+      "Event Organization",
+      "Team Coordination",
+      "Debate & Communication",
+    ],
   },
 ];
 
@@ -54,7 +61,7 @@ export default function About() {
           <SketchCard decoration="tape" rotation="slight-left" className="p-7 sm:p-10 mb-16 shadow-sketch-lg">
             <div className="space-y-5 font-body text-xl sm:text-2xl leading-relaxed text-muted">
               <p>
-                I&apos;m a second-year preparatory engineering student at{" "}
+                I&apos;m a second year preparatory engineering student at{" "}
                 <span className="text-foreground font-bold underline decoration-wavy decoration-accent underline-offset-4">
                   NHSAST
                 </span>{" "}
@@ -64,19 +71,19 @@ export default function About() {
                 I teach Analysis 2 through{" "}
                 <span className="text-accent font-bold">Epsilite</span>, a volunteer tutoring program
                 I co-manage. I&apos;ve built web platforms used by hundreds of students, co-authored an
-                Analysis II textbook with Dr. Zeglaoui (200+ pages), wrote a solo Analysis I book, and
+                Analysis II textbook with Dr. Zeglaoui (200+ pages), authored the solo 219 page Analysis I Companion Book, and
                 competed in robotics.
               </p>
               <p>
                 Currently, I&apos;m an active member of{" "}
                 <span className="text-secondary-accent font-bold">Team Delta</span>, NHSAST&apos;s robotics
-                team preparing for the AST Festival across 7 competition entries — from sumo robots to an all-terrain rover.
+                team preparing for the AST Festival across 7 competition entries, from sumo robots to an all-terrain rover.
               </p>
               <p>
                 I&apos;m also the <span className="text-foreground font-bold">AI Manager at IEEE NHSAST</span> and
-                the <span className="text-accent font-bold">Event Manager at ASTCS</span> (the Scientific Club AST).
+                the <span className="text-accent font-bold">Event Manager at ASTCS</span>.
                 I organized events like Seed 2 and the AST Birthday celebration, and I&apos;m part of planning the next Festival.
-                I also created <span className="text-secondary-accent font-bold">Unfalables</span> — a philosophical debate
+                I also created <span className="text-secondary-accent font-bold">Unfalables</span>, a philosophical debate
                 competition where teams argue opposing positions under timed rounds.
               </p>
 
@@ -90,7 +97,7 @@ export default function About() {
                 >
                   <div className="thumbtack-pin" aria-hidden="true" />
                   <blockquote className="font-heading text-lg sm:text-xl font-bold leading-snug">
-                    &ldquo;Most of what I build comes from running into a problem and deciding to fix it —
+                    &ldquo;Most of what I build comes from running into a problem and deciding to fix it:
                     misleading info about NHSAST led to NHSAST-Info,
                     students struggling with modules led to Epsilite,
                     parents calling the teacher every 5 minutes during trips led to the Trips Tracker.&rdquo;

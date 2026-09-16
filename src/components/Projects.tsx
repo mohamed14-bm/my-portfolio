@@ -31,7 +31,7 @@ const projects: Project[] = [
       "When I got my bac in 2025 and started looking into NHSAST, I ran into misleading information everywhere. There was no centralized, honest resource about the school, its programs, specializations, or what student life actually looks like.",
     what: [
       "Built a guided tour that walks prospective students through the school from scratch",
-      "Added specialization pages with introductions written by students in each field — covering career paths, market outlook, and honest advice",
+      "Added specialization pages with introductions written by students in each field, covering career paths, market outlook, and honest advice",
       "Included facility details (study room hours, library), official preparatory syllabus, club info with event photos and social links",
       "Created an Epsilite section, a FAQ page, and a Students' Opinion page with both positives and negatives",
       "Built an Ask Us page linking to a Telegram group with tagged NHSAST students ready to answer questions",
@@ -51,19 +51,19 @@ const projects: Project[] = [
     number: "02",
     category: "Academic Platform & LaTeX",
     title: "Epsilite",
-    hook: "Main exam-prep resource for NHSAST students. Study sessions reached 35+ attendees.",
+    hook: "Main exam prep resource for NHSAST students. Reached 1,300+ visits during the catch up exams period, with study sessions reaching 35+ attendees.",
     problem:
       "NHSAST runs a 2-year general prep cycle followed by 3 years of specialization. The first two years pack in a lot of modules, and students struggle. There was no organized peer-to-peer academic support.",
     what: [
       "Co-founded a volunteer tutoring program where students who master a topic create exercise sets, re-explain hard parts, and produce summaries, cheat sheets, and exams at defined difficulty levels",
       "Taught Analysis 2 (calculus) alongside two other teachers, and managed the first-year side of the program",
       "Created exercise sets, exams, midterms, summaries, and cheat sheets in LaTeX",
-      "Built markdown-to-LaTeX templates so other teachers could style their materials without learning LaTeX — they went on to produce resources across several modules",
+      "Built markdown-to-LaTeX templates so other teachers could style their materials without learning LaTeX, enabling them to produce resources across several modules",
       "Built the Epsilite web platform: teachers are admins who publish resources, students browse everything in one place, with per-document view tracking",
     ],
     role: "Co-founded and managed. Taught calculus. Built the entire platform and the LaTeX template system.",
     impact:
-      "Main resource during exam periods. 35+ students per session. Planning expansion to other higher schools in Sidi Abdellah.",
+      "Main resource during exam periods. Reached over 1,300 visits during the catch up exams period, with 35+ students per study session. Planning expansion to other higher schools in Sidi Abdellah.",
     tech: ["Next.js", "Tailwind CSS", "LaTeX", "Vercel", "Analytics"],
     links: [
       { label: "Live Site", href: "https://epsilite.vercel.app" },
@@ -74,15 +74,15 @@ const projects: Project[] = [
     id: "analysis-2-book",
     number: "03",
     category: "Textbook · Co-Author",
-    title: "Analysis II — Textbook",
+    title: "Analysis II Textbook",
     hook: "200+ page calculus textbook co-authored with Dr. Zeglaoui. 23+ revision rounds. Pending publication.",
     problem:
       "NHSAST prep students need rigorous, well-structured material for the Analysis II module. The existing professor's notes were dense and hard to study from independently.",
     what: [
-      "Co-authored a full calculus textbook with Dr. Zeglaoui covering sequences, series, continuity, differentiability, and integration — with complete proofs, worked examples, and graded exercises",
+      "Co-authored a full calculus textbook with Dr. Zeglaoui covering sequences, series, continuity, differentiability, and integration, complete with proofs, worked examples, and graded exercises",
       "The book is 200+ pages and went through 23+ revision rounds including mathematical audits, pedagogical consistency reviews, and visual styling passes",
       "Written entirely in LaTeX with custom styling: flowcharts explaining proof strategies, cheat sheets per chapter, and TikZ diagrams",
-      "Used AI as a tool to help design the LaTeX templates and formatting — not to write the math",
+      "Used AI as a tool to help design the LaTeX templates and formatting, not to write the math",
     ],
     role: "Co-author with Dr. Zeglaoui. Full LaTeX production, styling, and revision management.",
     impact:
@@ -94,19 +94,21 @@ const projects: Project[] = [
     id: "analysis-1-book",
     number: "04",
     category: "Textbook · Sole Author",
-    title: "Analysis I — Textbook",
-    hook: "Complete Analysis I textbook written as sole author. Used by first-year students for exam prep.",
+    title: "Analysis I Companion Book",
+    hook: "219 page real analysis textbook authored solo for NHSAST prep students. Blends rigorous theory, autonomous systems engineering models, and three tier problem sets.",
     problem:
-      "First-semester Analysis is one of the hardest modules for new prep students. There was no single, well-organized resource covering the full curriculum with exercises and solutions.",
+      "First semester Analysis is one of the steepest hurdles for new engineering students. Available course materials often treat analysis as detached abstract formalism without showing how it directly governs autonomous systems, signal quantization, and feedback dynamics.",
     what: [
-      "Wrote a complete Analysis I textbook covering the first-semester curriculum — limits, continuity, derivatives, and foundational real analysis",
-      "Structured with progressive difficulty: definitions, theorems with proofs, worked examples, then exercise sets",
-      "Full LaTeX production with the same custom template system used for the Analysis II book",
+      "Wrote a 219 page companion textbook spanning the real number system, sequence convergence, functional continuity, differentiability, and asymptotic analysis",
+      "Embedded real autonomous systems applications into the mathematical theory, including ADC quantization, discrete proportional control errors, scalar Kalman filter variance updates, and attitude angle estimation",
+      "Curated three tier progressive problem sets combining foundational checks with advanced problems drawn from French CPGE Math Sup/Spe, Algerian national competitions, and MIT OpenCourseWare",
+      "Designed pedagogical tools including a Proof Strategy Menu, Cross Chapter Logical Traps with counterexamples, full mock midterms and final exams, and comprehensive step by step corrections",
+      "Engineered the full LaTeX and TikZ production with custom architectural layouts, vector cover art, and rigorous mathematical typesetting",
     ],
-    role: "Sole author. Wrote all content and produced the entire book in LaTeX.",
+    role: "Sole author and typesetter. Researched, drafted, curated problems, and produced the entire 219 page book in LaTeX.",
     impact:
-      "Used by first-year NHSAST students as their main exam preparation resource.",
-    tech: ["LaTeX", "TikZ", "Pedagogical Templates"],
+      "Primary reference and exam preparation companion for first year NHSAST students, bridging pure mathematical rigor with autonomous engineering intuition.",
+    tech: ["LaTeX", "TikZ", "Pedagogical Design", "Mathematical Auditing", "CPGE & MIT OCW Curricula"],
     links: [],
   },
   {
@@ -118,31 +120,31 @@ const projects: Project[] = [
     problem:
       "POLYMAZE is a maze-solver competition organized by the VIC club. I needed to design, build, and program a robot that autonomously navigates a maze.",
     what: [
-      "Designed a 3D-printed chassis in Fusion 360 with battery slide-in mounts and a PCB seat that frees up room for sensors",
+      "Designed a 3D-printed chassis in SolidWorks with battery slide-in mounts and a PCB seat that frees up room for sensors",
       "Wired up the circuit with QTR line sensors and an ESP32-WROOM controlling an H-bridge motor driver",
       "Wrote the maze-solving algorithm in C++",
-      "During testing, the ESP32 burned out — I had used solder directly as the conductor instead of actual wires",
+      "During testing, the ESP32 burned out because I had used solder directly as the conductor instead of actual wires",
       "The only replacement I could find was an ESP32-S3 from a friend's robot, but it didn't fit my custom mount",
       "Rebuilt the entire setup on a breadboard with an L298N motor driver in the final minutes, filmed the qualification video, and submitted",
     ],
     role: "Solo. Designed the chassis, wired the circuit, wrote the code, and did the panicked breadboard rebuild.",
     impact:
-      "Qualified with the breadboard robot. Made it to Phase 2. A QTR sensor broke mid-competition — finished 3rd in my group. Not the ending I wanted, but I learned never to use solder as a wire again.",
-    tech: ["ESP32", "L298N Driver", "QTR Sensors", "C++", "Fusion 360", "3D Printing"],
+      "Qualified with the breadboard robot. Made it to Phase 2. A QTR sensor broke mid-competition, and I finished 3rd in my group. Not the ending I wanted, but I learned never to use solder as a wire again.",
+    tech: ["ESP32", "L298N Driver", "QTR Sensors", "C++", "SolidWorks", "3D Printing"],
     links: [],
   },
   {
     id: "delta-team",
     number: "06",
     category: "Competitive Robotics Team",
-    title: "Team Delta — AST Festival",
+    title: "Team Delta: AST Festival",
     hook: "7 robot entries for the AST Festival: dog robot, sumo, rocket league, all-terrain, and more.",
     problem:
       "NHSAST's Scientific Club AST is competing at the AST Festival. The team needed to build multiple robots across different competition categories and present a credible, organized front to festival visitors and potential sponsors.",
     what: [
       "Part of Team Delta at NHSAST, building robots for 7 competition entries: Dog Robot, Sumo Robot, Rocket League, All-Terrain (6-wheel rocker-bogie), Maze Solver, Line Follower, and an Innovation Project",
       "Working on CAD designs, mechanical fabrication, and embedded control across multiple entries",
-      "Built the Team Delta showcase website to document the team's work — CAD renders, build photos, real specs — for festival visitors and sponsors",
+      "Built the Team Delta showcase website to document the team's work (CAD renders, build photos, and real specs) for festival visitors and sponsors",
     ],
     role: "Team member. Building robots and developing the team website.",
     impact:
@@ -163,11 +165,11 @@ const projects: Project[] = [
       "Admin dashboard generates a unique teacher passkey and parent link per trip",
       "Parent page shows a Leaflet map with live/offline status, a 'Recenter on Bus' button, and a 'See in Google Maps' deep link for traffic and ETA",
       "Built-in battery protection: polling pauses when the phone is locked, and hard-stops when the trip completes",
-      "Total cost: $0/month — runs entirely on Vercel free tier, Vercel KV, and Telegram Bot API",
+      "Total cost: $0/month, running entirely on Vercel free tier, Vercel KV, and Telegram Bot API",
     ],
     role: "Solo developer. Designed the system, built the webhook, admin dashboard, and parent tracking page.",
     impact:
-      "Designed for real deployment during school trips. Runs at zero cost with privacy-by-default — location data auto-deletes after 2 hours.",
+      "Designed for real deployment during school trips. Runs at zero cost with privacy by default, and location data auto-deletes after 2 hours.",
     tech: ["Next.js", "Telegram Bot API", "Vercel KV", "Leaflet.js", "TypeScript"],
     links: [],
   },

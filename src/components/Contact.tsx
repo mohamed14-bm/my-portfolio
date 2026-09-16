@@ -104,7 +104,7 @@ export default function Contact() {
         <div className="pt-8 border-t-2 border-dashed border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3 font-body text-base font-bold text-muted">
           <span>Mohamed Bennamane &middot; NHSAST, Sidi Abdellah, Algiers</span>
           <span className="font-heading text-lg text-accent tracking-wide">
-            Build &middot; Test &middot; Learn
+            Build &middot; Test &middot; Learn &middot; Innovate
           </span>
         </div>
       </div>

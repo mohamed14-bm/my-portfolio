@@ -3,11 +3,11 @@ import { ThemeProvider } from "@/components/ThemeContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Mohamed Bennamane — Autonomous Systems & Robotics",
+  title: "Mohamed Bennamane | Autonomous Systems & Robotics",
   description:
     "Engineering student at NHSAST (Autonomous Systems Technologies). Team Delta Robotics, Epsilite, NHSAST-Info, and technical authoring.",
   openGraph: {
-    title: "Mohamed Bennamane — Autonomous Systems & Robotics",
+    title: "Mohamed Bennamane | Autonomous Systems & Robotics",
     description:
       "Engineering student at NHSAST (Autonomous Systems Technologies). Team Delta Robotics, Epsilite, NHSAST-Info, and technical authoring.",
     type: "website",

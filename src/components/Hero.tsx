@@ -67,13 +67,13 @@ export default function Hero() {
           </h1>
 
           <p className="font-heading text-2xl sm:text-3xl font-semibold text-secondary-accent mb-6 leading-tight">
-            Building software platforms, embedded control systems, and robotics.
+            Competing in robotics, building platforms, and helping other students.
           </p>
 
           {/* Grounded Bio Prose in Patrick Hand */}
           <p className="font-body text-xl sm:text-2xl text-muted leading-relaxed mb-8 max-w-2xl">
             I&apos;m an engineering student at NHSAST in Sidi Abdellah, Algiers.
-            Most of what I build comes from running into a problem and deciding to fix it — from
+            Most of what I build comes from running into a problem and deciding to fix it, from
             school information sites and bus tracking platforms to competitive robotics and published calculus textbooks.
           </p>
 
