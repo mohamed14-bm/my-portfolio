@@ -1,0 +1,165 @@
+# Mohamed Bennamane — Full Profile
+
+> Robotics & AI engineering student at NHSAST (National Higher School of Autonomous Systems Technologies), Sidi Abdellah, Algiers, Algeria.
+
+## Personal Summary
+
+I'm a second-year preparatory engineering student at NHSAST. I teach Analysis 2 through Epsilite, a volunteer tutoring program I co-manage. I've built web platforms used by hundreds of students, co-authored an Analysis II textbook with Dr. Zeglaoui (200+ pages), authored the solo 219-page Analysis I Companion Book, and competed in robotics.
+
+Currently, I'm an active member of Team Delta, NHSAST's robotics team preparing for the AST Festival across 7 competition entries, from sumo robots to an all-terrain rover.
+
+I'm also the AI Manager at IEEE NHSAST and the Event Manager at ASTCS. I organized events like Seed 2 and the AST Birthday celebration, and I'm part of planning the next Festival. I also created Unfalables, a philosophical debate competition where teams argue opposing positions under timed rounds.
+
+Most of what I build comes from running into a problem and deciding to fix it: misleading info about NHSAST led to NHSAST-Info, students struggling with modules led to Epsilite, parents calling the teacher every 5 minutes during trips led to the Trips Tracker.
+
+---
+
+## Projects
+
+### 01. NHSAST-Info — Web Platform (Arabic i18n)
+
+**Problem:** When I got my bac in 2025 and started looking into NHSAST, I ran into misleading information everywhere. There was no centralized, honest resource about the school.
+
+**What I built:**
+- A guided tour walking prospective students through the school from scratch
+- Specialization pages with introductions written by students in each field, covering career paths, market outlook, and honest advice
+- Facility details (study room hours, library), official preparatory syllabus, club info with event photos and social links
+- Epsilite section, FAQ page, and Students' Opinion page with both positives and negatives
+- Ask Us page linking to a Telegram group with tagged NHSAST students ready to answer questions
+- Full Arabic support with seamless RTL rendering so parents can read about what their kids will study
+
+**Role:** Solo. Wrote all content, designed the interface, and built the site.
+**Impact:** 1,500+ visitors during the specialty-choosing period. Multiple students confirmed the information and clarity was their main reason for picking the school.
+**Tech:** Next.js, Tailwind CSS, i18n (EN/AR + RTL), Vercel
+**Links:** https://nhsast-info.vercel.app
+
+---
+
+### 02. Epsilite — Academic Platform & LaTeX
+
+**Problem:** NHSAST runs a 2-year general prep cycle followed by 3 years of specialization. Students struggle with the dense module load and there was no organized peer-to-peer academic support.
+
+**What I built:**
+- Co-founded a volunteer tutoring program where students create exercise sets, re-explain hard parts, produce summaries, cheat sheets, and exams at defined difficulty levels
+- Taught Analysis 2 (calculus) alongside two other teachers, managed the first-year side
+- Created exercise sets, exams, midterms, summaries, and cheat sheets in LaTeX
+- Built markdown-to-LaTeX templates so other teachers could style their materials without learning LaTeX
+- Built the Epsilite web platform: teachers are admins who publish resources, students browse everything, with per-document view tracking
+
+**Role:** Co-founded and managed. Taught calculus. Built the entire platform and LaTeX template system.
+**Impact:** Main resource during exam periods. 1,300+ visits during catch-up exams. 35+ students per study session. Planning expansion to other higher schools in Sidi Abdellah.
+**Tech:** Next.js, Tailwind CSS, LaTeX, Vercel, Analytics
+**Links:** https://epsilite.vercel.app
+
+---
+
+### 03. Analysis II Textbook — Co-Author
+
+**Problem:** NHSAST prep students need rigorous, well-structured material for Analysis II. The existing professor's notes were dense and hard to study from independently.
+
+**What I built:**
+- Co-authored a full calculus textbook with Dr. Zeglaoui covering sequences, series, continuity, differentiability, and integration
+- 200+ pages, 23+ revision rounds including mathematical audits, pedagogical reviews, and visual styling
+- Written entirely in LaTeX with custom styling: flowcharts for proof strategies, cheat sheets per chapter, TikZ diagrams
+- Used AI as a tool for LaTeX templates and formatting, not to write the math
+
+**Role:** Co-author with Dr. Zeglaoui. Full LaTeX production, styling, and revision management.
+**Impact:** Pending publication. Used by students during exam preparation.
+**Tech:** LaTeX, TikZ, Pedagogical Design, Mathematical Auditing
+
+---
+
+### 04. Analysis I Companion Book — Sole Author
+
+**Problem:** First semester Analysis is one of the steepest hurdles for new engineering students. Available materials treat analysis as detached formalism without showing how it governs autonomous systems.
+
+**What I built:**
+- 219-page companion textbook spanning the real number system, sequence convergence, functional continuity, differentiability, and asymptotic analysis
+- Embedded real autonomous systems applications: ADC quantization, discrete proportional control errors, scalar Kalman filter variance updates, attitude angle estimation
+- Three-tier progressive problem sets from foundational checks to advanced problems drawn from French CPGE Math Sup/Spé, Algerian competitions, and MIT OpenCourseWare
+- Pedagogical tools: Proof Strategy Menu, Cross-Chapter Logical Traps with counterexamples, full mock exams with step-by-step corrections
+- Full LaTeX/TikZ production with custom architectural layouts and vector cover art
+
+**Role:** Sole author and typesetter.
+**Impact:** Primary reference and exam prep companion for first-year NHSAST students.
+**Tech:** LaTeX, TikZ, Pedagogical Design, CPGE & MIT OCW Curricula
+
+---
+
+### 05. POLYMAZE Robot — Robotics Competition
+
+**Problem:** POLYMAZE is a maze-solver competition. I needed to design, build, and program a robot that autonomously navigates a maze.
+
+**What I built:**
+- 3D-printed chassis designed in SolidWorks with battery slide-in mounts and PCB seat
+- Circuit with QTR line sensors and ESP32-WROOM controlling an H-bridge motor driver
+- Maze-solving algorithm in C++
+- ESP32 burned out 2 hours before deadline because I used solder as conductor instead of wires
+- Rebuilt entire setup on a breadboard with L298N motor driver in the final minutes
+
+**Role:** Solo. Chassis design, circuit wiring, code, and panicked breadboard rebuild.
+**Impact:** Qualified with the breadboard robot. Made it to Phase 2. Finished 3rd in group.
+**Tech:** ESP32, L298N Driver, QTR Sensors, C++, SolidWorks, 3D Printing
+
+---
+
+### 06. Team Delta — AST Festival (Competitive Robotics)
+
+**What I'm building:**
+- Part of Team Delta at NHSAST, building robots for 7 competition entries: Dog Robot, Sumo Robot, Rocket League, All-Terrain (6-wheel rocker-bogie), Maze Solver, Line Follower, and Innovation Project
+- Working on CAD designs, mechanical fabrication, and embedded control
+- Built the Team Delta showcase website for festival visitors and sponsors
+
+**Role:** Team member. Building robots and developing the team website.
+**Tech:** ESP32, SolidWorks, PCB Design, Embedded C, Next.js, Tailwind CSS
+
+---
+
+### 07. Expand Trips Tracker — Telemetry & Live Tracking
+
+**Problem:** During school trips, parents repeatedly call the teacher to ask where the bus is.
+
+**What I built:**
+- Live bus tracking: teacher shares Telegram Live Location, webhook ingests GPS, parents see bus moving on a map
+- Admin dashboard generates unique teacher passkey and parent link per trip
+- Leaflet map with live/offline status, recenter button, Google Maps deep link for traffic/ETA
+- Battery protection: polling pauses when phone is locked, hard-stops when trip completes
+- Total cost: $0/month — Vercel free tier, Vercel KV, Telegram Bot API
+
+**Role:** Solo. Everything from Telegram bot to parent-facing map.
+**Tech:** Next.js, Leaflet.js, Telegram Bot API, Vercel KV
+
+---
+
+## Skills & Technologies
+
+### Robotics & Embedded
+ESP32, Arduino, Motor Control, Sensor Integration, Circuit Design, PID Control
+
+### AI & Automation
+Agents Fine Tuning, AI Assisted Development, n8n Workflows
+
+### Programming
+C, C++, Python, Embedded Logic
+
+### CAD & Fabrication
+SolidWorks, Fusion 360, 3D Printing, Chassis Design
+
+### Technical Writing
+LaTeX, TikZ, Markdown, Pedagogical Templates, Textbook Authoring
+
+### Leadership & Social Skills
+Leadership, Project Management, Event Organization, Team Building, Public Speaking
+
+## Languages
+Arabic (native), French (fluent), English (fluent)
+
+---
+
+## Contact
+
+- Portfolio: https://mohamedbennamane.vercel.app
+- GitHub: https://github.com/mohamed14-bm
+- LinkedIn: https://www.linkedin.com/in/mohamed-bennamane-22402b264/
+- Email: mbennamane4@gmail.com
+- Telegram: https://t.me/MohamedBennamne

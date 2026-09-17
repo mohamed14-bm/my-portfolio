@@ -1,0 +1,40 @@
+# Mohamed Bennamane
+
+> Robotics & AI engineering student at NHSAST (National Higher School of Autonomous Systems Technologies), Sidi Abdellah, Algiers, Algeria.
+
+## About
+
+Second-year preparatory engineering student at NHSAST. Active member of Team Delta, NHSAST's competitive robotics team preparing for the AST Festival with 7 competition entries. Co-manages Epsilite, a volunteer tutoring program. AI Manager at IEEE NHSAST. Event Manager at ASTCS. Co-authored a 200+ page Analysis II textbook with Dr. Zeglaoui. Sole author of the 219-page Analysis I Companion Book.
+
+## Projects
+
+- **NHSAST-Info**: Informational web platform about NHSAST with Arabic RTL support. 1,500+ visitors during specialty-choosing period. Solo project.
+- **Epsilite**: Volunteer tutoring program and web platform for NHSAST students. 1,300+ visits during exam periods. Co-founded and co-managed.
+- **Analysis II Textbook**: 200+ page calculus textbook co-authored with Dr. Zeglaoui. 23+ revision rounds. LaTeX with TikZ diagrams.
+- **Analysis I Companion Book**: 219-page real analysis textbook, sole author. Blends rigorous theory with autonomous systems engineering applications.
+- **POLYMAZE Robot**: ESP32-based autonomous maze-solving robot. Designed chassis in SolidWorks, 3D-printed, programmed in C++.
+- **Team Delta (AST Festival)**: 7 robot entries — dog robot, sumo, rocket league, all-terrain rover, maze solver, line follower, innovation project.
+- **Expand Trips Tracker**: Real-time school bus tracking via Telegram Live Location + Leaflet maps. Zero-cost deployment.
+
+## Skills
+
+ESP32, Arduino, Motor Control, Sensor Integration, Circuit Design, PID Control, C, C++, Python, SolidWorks, Fusion 360, 3D Printing, Chassis Design, LaTeX, TikZ, Next.js, Tailwind CSS, AI Agents, n8n Workflows
+
+## Roles
+
+- AI Manager at IEEE NHSAST
+- Event Manager at ASTCS
+- Analysis 2 Teacher at Epsilite
+- Team Delta Robotics Member
+
+## Links
+
+- Portfolio: https://mohamedbennamane.vercel.app
+- GitHub: https://github.com/mohamed14-bm
+- LinkedIn: https://www.linkedin.com/in/mohamed-bennamane-22402b264/
+- Email: mbennamane4@gmail.com
+- Telegram: https://t.me/MohamedBennamne
+
+## Optional
+
+- [Full details](/llms-full.txt)
