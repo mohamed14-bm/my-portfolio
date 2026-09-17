@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
+import WavyDivider from "@/components/WavyDivider";
 import ScrollReveal from "@/components/ScrollReveal";
 import { RoboticsMotif } from "@/components/RoboticsMotifs";
 
@@ -269,6 +270,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <button
           type="button"
           onClick={() => setExpanded(!expanded)}
+          aria-expanded={expanded}
+          aria-controls={`notes-${project.id}`}
           className="inline-flex items-center gap-2 font-body text-lg font-bold text-muted hover:text-accent wavy-hover transition-colors cursor-pointer select-none pt-1"
         >
           <span>{expanded ? "Fold case notes" : "Read handwritten notes"}</span>
@@ -281,12 +284,16 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       {/* Expanded detail: notebook fold */}
       <div
-        className={`grid transition-all duration-200 ease-in-out ${
+        id={`notes-${project.id}`}
+        data-expanded={expanded}
+        aria-hidden={!expanded}
+        inert={!expanded}
+        className={`notebook-fold grid ${
           expanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
         }`}
       >
         <div className="overflow-hidden">
-          <div className="px-6 sm:px-8 pb-8 pt-5 border-t-2 border-dashed border-border/60 space-y-6 bg-paper-wash/50">
+          <div className="case-notes px-6 sm:px-8 pb-8 pt-5 border-t-2 border-dashed border-border/60 space-y-6 bg-paper-wash/50">
             <div>
               <h4 className="font-heading text-lg text-accent font-bold mb-1">
                 The Problem
@@ -333,12 +340,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 export default function Projects() {
   return (
     <section id="projects" className="relative py-24 robotics-surface border-t-2 border-dashed border-border/70">
+      <WavyDivider />
       {/* Background Sketched Motif */}
       <RoboticsMotif kind="signal-grid" className="section-signal-motif" />
 
       <div className="max-w-5xl mx-auto px-5 sm:px-6 relative z-10">
         {/* Section Header */}
-        <ScrollReveal>
+        <ScrollReveal variant="header">
           <div className="mb-12">
             <div className="orange-bar" />
             <h2 className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
@@ -353,7 +361,7 @@ export default function Projects() {
         {/* Project cards stack */}
         <div className="space-y-6">
           {projects.map((project, i) => (
-            <ScrollReveal key={project.id} delay={i * 40}>
+            <ScrollReveal key={project.id} variant={i % 2 === 0 ? "left" : "right"} delay={(i % 3) * 60}>
               <ProjectCard project={project} index={i} />
             </ScrollReveal>
           ))}

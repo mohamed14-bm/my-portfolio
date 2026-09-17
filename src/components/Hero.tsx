@@ -36,14 +36,14 @@ const socials = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center robotics-surface overflow-hidden pt-28 pb-16">
+    <section className="relative min-h-[90vh] flex items-center robotics-surface overflow-hidden pt-28 pb-16 hero-surface">
       {/* Background Sketched Robotics Motifs */}
       <RoboticsMotif kind="microcontroller" className="home-controller-motif" />
       <RoboticsMotif kind="signal-grid" className="home-trace-motif" />
       <RoboticsMotif kind="robot-arm" className="home-arm-motif" />
 
       <div className="max-w-5xl mx-auto px-5 sm:px-6 w-full relative z-10">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl hero-notes">
           {/* Handwritten Status Badges */}
           <div className="flex flex-wrap items-center gap-2.5 mb-6">
             <SketchBadge variant="accent" rotate={true}>
@@ -89,7 +89,7 @@ export default function Hero() {
 
             {/* Hand-drawn arrow pointing to CTA (desktop only) */}
             <div className="hidden md:flex items-center gap-2 ml-4 -rotate-6 pointer-events-none select-none">
-              <SketchArrow direction="right" className="w-10 h-6 stroke-accent" />
+              <SketchArrow direction="right" className="sketch-arrow-draw w-10 h-6 stroke-accent text-accent" />
               <span className="font-heading text-base font-bold text-accent">
                 take a look!
               </span>

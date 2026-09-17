@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -149,7 +149,7 @@ export function SketchBadge({
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 px-3 py-1 font-body text-base font-semibold border-2 ${variantClasses} ${
+      className={`sketch-badge inline-flex items-center gap-1.5 px-3 py-1 font-body text-base font-semibold border-2 ${variantClasses} ${
         rotate ? "-rotate-1" : ""
       } ${className}`}
       style={{
@@ -208,13 +208,14 @@ export function SketchArrow({
       <path
         d="M6 16 C 20 13, 38 18, 54 16"
         stroke="currentColor"
+        pathLength={100}
         strokeWidth="2.5"
         strokeLinecap="round"
-        strokeDasharray="4 3"
       />
       <path
         d="M44 8 C 48 12, 53 15, 56 16 C 52 18, 47 21, 44 24"
         stroke="currentColor"
+        pathLength={100}
         strokeWidth="2.5"
         strokeLinecap="round"
         strokeLinejoin="round"

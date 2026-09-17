@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, Mail, Send } from "lucide-react";
+import WavyDivider from "@/components/WavyDivider";
 import ScrollReveal from "@/components/ScrollReveal";
 import { RoboticsMotif } from "@/components/RoboticsMotifs";
 
@@ -41,11 +42,12 @@ const channels = [
 export default function Contact() {
   return (
     <section id="contact" className="relative py-24 robotics-surface border-t-2 border-dashed border-border/70">
+      <WavyDivider />
       {/* Background Sketched Motif */}
       <RoboticsMotif kind="connector" className="section-connector-motif" />
 
       <div className="max-w-5xl mx-auto px-5 sm:px-6 relative z-10">
-        <ScrollReveal>
+        <ScrollReveal variant="header">
           <div className="mb-12">
             <div className="orange-bar" />
             <h2 className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
@@ -58,15 +60,14 @@ export default function Contact() {
         </ScrollReveal>
 
         {/* Contact links grid as tactile calling cards */}
-        <ScrollReveal delay={80}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mb-16">
-            {channels.map((ch, idx) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mb-16">
+          {channels.map((ch, idx) => (
+            <ScrollReveal key={ch.label} variant="pop" delay={idx * 80}>
               <Link
-                key={ch.label}
                 href={ch.href}
                 target={ch.href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={ch.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                className={`wobbly-card p-5 flex items-center justify-between group border-2 border-border bg-paper-bright text-foreground shadow-sketch hover:shadow-sketch-lg transition-all duration-150 cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-sketch-none ${
+                className={`h-full wobbly-card p-5 flex items-center justify-between group border-2 border-border bg-paper-bright text-foreground shadow-sketch hover:shadow-sketch-lg transition-all duration-150 cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-sketch-none ${
                   idx % 2 === 0 ? "rotate-0.5 hover:-rotate-0.5" : "-rotate-0.5 hover:rotate-1"
                 }`}
                 style={{
@@ -96,9 +97,9 @@ export default function Contact() {
                   className="stroke-[2.5] text-muted group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
                 />
               </Link>
-            ))}
-          </div>
-        </ScrollReveal>
+            </ScrollReveal>
+          ))}
+        </div>
 
         {/* Authentic handwritten footer note */}
         <div className="pt-8 border-t-2 border-dashed border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3 font-body text-base font-bold text-muted">

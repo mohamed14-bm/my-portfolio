@@ -1,4 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import WavyDivider from "@/components/WavyDivider";
 import { RoboticsMotif } from "@/components/RoboticsMotifs";
 import { SketchCard, SketchBadge } from "@/components/HandDrawnUI";
 
@@ -41,13 +42,14 @@ const languages = ["Arabic", "English", "French"];
 export default function About() {
   return (
     <section id="about" className="relative py-24 robotics-surface border-t-2 border-dashed border-border/70">
+      <WavyDivider />
       {/* Background Sketched Motifs */}
       <RoboticsMotif kind="team-network" className="section-network-motif" />
       <RoboticsMotif kind="connector" className="section-connector-motif" />
 
       <div className="max-w-5xl mx-auto px-5 sm:px-6 relative z-10">
         {/* Section Header */}
-        <ScrollReveal>
+        <ScrollReveal variant="header">
           <div className="mb-12">
             <div className="orange-bar" />
             <h2 className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
@@ -109,43 +111,44 @@ export default function About() {
         </ScrollReveal>
 
         {/* Technical Skills Section */}
-        <ScrollReveal delay={120}>
-          <div id="skills" className="mb-16">
+        <div id="skills" className="mb-16">
+          <ScrollReveal>
             <h3 className="font-heading text-3xl font-bold text-foreground mb-8">
               Skills &amp; Technologies
             </h3>
+          </ScrollReveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {skillGroups.map((group, idx) => {
                 const tilts = ["rotate-1", "-rotate-1", "rotate-0.5", "-rotate-0.5", "rotate-1", "-rotate-1"];
                 return (
-                  <div
-                    key={group.label}
-                    className={`wobbly-card p-6 bg-paper-bright border-2 border-border shadow-sketch hover:shadow-sketch-lg transition-all duration-150 ${tilts[idx % tilts.length]}`}
-                    style={{
-                      borderRadius: "20px 255px 20px 255px / 255px 20px 255px 20px",
-                    }}
-                  >
-                    <h4 className="font-heading text-xl text-foreground font-bold mb-4 pb-2 border-b-2 border-dashed border-border/40">
-                      {group.label}
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {group.skills.map((skill) => (
-                        <SketchBadge
-                          key={skill}
-                          variant="muted"
-                          className="text-sm py-0.5 px-2.5 font-bold"
-                        >
-                          {skill}
-                        </SketchBadge>
-                      ))}
+                  <ScrollReveal key={group.label} variant="wobble" delay={(idx % 3) * 80}>
+                    <div
+                      className={`h-full wobbly-card p-6 bg-paper-bright border-2 border-border shadow-sketch hover:shadow-sketch-lg transition-all duration-150 ${tilts[idx % tilts.length]}`}
+                      style={{
+                        borderRadius: "20px 255px 20px 255px / 255px 20px 255px 20px",
+                      }}
+                    >
+                      <h4 className="font-heading text-xl text-foreground font-bold mb-4 pb-2 border-b-2 border-dashed border-border/40">
+                        {group.label}
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {group.skills.map((skill) => (
+                          <SketchBadge
+                            key={skill}
+                            variant="muted"
+                            className="text-sm py-0.5 px-2.5 font-bold"
+                          >
+                            {skill}
+                          </SketchBadge>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  </ScrollReveal>
                 );
               })}
             </div>
           </div>
-        </ScrollReveal>
 
         {/* Languages */}
         <ScrollReveal delay={160}>
