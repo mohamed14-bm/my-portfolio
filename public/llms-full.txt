@@ -158,7 +158,7 @@ Arabic (native), French (fluent), English (fluent)
 
 ## Contact
 
-- Portfolio: https://mohamedbennamane.vercel.app
+- Portfolio: https://mohamed-bennamane.vercel.app
 - GitHub: https://github.com/mohamed14-bm
 - LinkedIn: https://www.linkedin.com/in/mohamed-bennamane-22402b264/
 - Email: mbennamane4@gmail.com

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeContext";
 import "./globals.css";
 
-const SITE_URL = "https://mohamedbennamane.vercel.app";
+const SITE_URL = "https://mohamed-bennamane.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

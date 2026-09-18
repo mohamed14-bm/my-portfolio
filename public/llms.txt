@@ -29,7 +29,7 @@ ESP32, Arduino, Motor Control, Sensor Integration, Circuit Design, PID Control, 
 
 ## Links
 
-- Portfolio: https://mohamedbennamane.vercel.app
+- Portfolio: https://mohamed-bennamane.vercel.app
 - GitHub: https://github.com/mohamed14-bm
 - LinkedIn: https://www.linkedin.com/in/mohamed-bennamane-22402b264/
 - Email: mbennamane4@gmail.com
